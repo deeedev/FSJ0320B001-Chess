@@ -16,12 +16,11 @@ console.log(array)
 console.log("Steps:" + steps);
 console.log("direction:" + direction);
 
-function changedirection(steps, direction) {
+function changedirection() {
     switch (direction) {
         case 'S':
-            console.log("Steps:" + steps);
-            temp = queen.position.x + steps;
-            if (boundarycheck(temp)) {
+            const temp = queen.position.x + steps
+            if (temp >= 0 && temp < 8) {
                 queen.position.x = temp;
             }
             else {
@@ -30,7 +29,7 @@ function changedirection(steps, direction) {
             break;
         case 'N':
             temp = queen.position.x - steps;
-            if (boundarycheck(temp)) {
+            if (temp >= 0 && temp < 8) {
                 queen.position.x = temp;
             }
             else {
@@ -39,7 +38,7 @@ function changedirection(steps, direction) {
             break;
         case 'E':
             temp = queen.position.y + steps;
-            if (boundarycheck(temp)) {
+            if (temp >= 0 && temp < 8) {
                 queen.position.y = temp;
             }
             else {
@@ -48,7 +47,7 @@ function changedirection(steps, direction) {
             break;
         case 'W':
             temp = queen.position.y - steps;
-            if (boundarycheck(temp)) {
+            if (temp >= 0 && temp < 8) {
                 queen.position.y = temp;
             }
             else {
@@ -102,16 +101,11 @@ function changedirection(steps, direction) {
 
     }
 }
-function boundarycheck(val) {
-    if (val >= 0 || val < 8)
-        return true;
-    console.log(val);
-}
 
-changedirection();
+var position = changedirection();
+
 // Checkpoint 3 | Moving the queen
-function moveForward() {
-}
+
 
 // Checkpoint 4 | Jump move the queen
 
