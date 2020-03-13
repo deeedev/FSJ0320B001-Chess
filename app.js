@@ -19,9 +19,10 @@ console.log("direction:" + direction);
 function changedirection() {
     switch (direction) {
         case 'S':
-            const temp = queen.position.x + steps
+            temp = queen.position.x + steps;
             if (temp >= 0 && temp < 8) {
                 queen.position.x = temp;
+                console.log(queen.position.x);
             }
             else {
                 console.log("crossing the boundary");
@@ -57,7 +58,7 @@ function changedirection() {
         case 'SE':
             temp_x = queen.position.x + steps;
             temp_y = queen.position.y + steps;
-            if (boundarycheck(temp_x, temp_y)) {
+            if ((temp_x >= 0 && temp_x < 8) && (temp_y >= 0 && temp_y < 8)) {
                 queen.position.x = temp_x;
                 queen.position.y = temp_y;
             }
@@ -68,7 +69,7 @@ function changedirection() {
         case 'SW':
             temp_x = queen.position.x + steps;
             temp_y = queen.position.y - steps;
-            if (boundarycheck(temp_x, temp_y)) {
+            if ((temp_x >= 0 && temp_x < 8) && (temp_y >= 0 && temp_y < 8)) {
                 queen.position.x = temp_x;
                 queen.position.y = temp_y;
             }
@@ -79,7 +80,7 @@ function changedirection() {
         case 'NW':
             temp_x = queen.position.x - steps;
             temp_y = queen.position.y - steps;
-            if (boundarycheck(temp)) {
+            if ((temp_x >= 0 && temp_x < 8) && (temp_y >= 0 && temp_y < 8)) {
                 queen.position.x = temp_x;
                 queen.position.y = temp_y;
             }
@@ -90,7 +91,7 @@ function changedirection() {
         case 'NE':
             temp_x = queen.position.x - steps;
             temp_y = queen.position.y + steps;
-            if (boundarycheck(temp_x, temp_y)) {
+            if ((temp_x >= 0 && temp_x < 8) && (temp_y >= 0 && temp_y < 8)) {
                 queen.position.x = temp_x;
                 queen.position.y = temp_y;
             }
@@ -105,6 +106,12 @@ function changedirection() {
 var position = changedirection();
 
 // Checkpoint 3 | Moving the queen
+
+function moveforward() {
+   var move = (queen.position.x) + (1);
+   console.log("move:" +move);
+}
+moveforward ();
 
 
 // Checkpoint 4 | Jump move the queen
